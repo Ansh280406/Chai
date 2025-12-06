@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENSE HACK - Trading Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-page">
+
+    <div class="app-container">
+        
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-brain logo-icon"></i>
+                <h2>SENSE HACK</h2>
+            </div>
+
+            <ul class="nav-links">
+                <li onclick="showSection('home')" class="nav-item">
+                    <i class="fa-solid fa-house"></i> <span>Home / Dashboard</span>
+                </li>
+                <li onclick="showSection('assets')" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i> <span>My Assets</span>
+                </li>
+                <li onclick="showSection('portfolio')" class="nav-item">
+                    <i class="fa-solid fa-chart-pie"></i> <span>Portfolio Analysis</span>
+                </li>
+                <li onclick="showSection('robo')" class="nav-item active">
+                    <i class="fa-solid fa-robot"></i> <span>AI Robo-Advisor</span>
+                </li>
+            </ul>
+
+            <div class="user-profile">
+                <div class="user-avatar">AM</div>
+                <div class="user-info">
+                    <h4>Ansh M.</h4>
+                    <small>Premium User</small>
+                </div>
+                <a href="index.html" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            
+            <section id="home" class="content-section hidden-section">
+                <header>
+                    <h1>Market Overview</h1>
+                    <p class="subtitle">Welcome back! Here is the market performance today.</p>
+                </header>
+                <div class="mock-cards-row">
+                    <div class="card stat-card">
+                        <h3>S&P 500</h3>
+                        <p class="trend-up">+1.2% <i class="fa-solid fa-arrow-trend-up"></i></p>
+                    </div>
+                    <div class="card stat-card">
+                        <h3>NASDAQ</h3>
+                        <p class="trend-down">-0.4% <i class="fa-solid fa-arrow-trend-down"></i></p>
+                    </div>
+                    <div class="card stat-card">
+                        <h3>Bitcoin</h3>
+                        <p class="trend-up">+3.5% <i class="fa-solid fa-arrow-trend-up"></i></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="assets" class="content-section hidden-section">
+                <header><h1>My Assets</h1></header>
+                <div class="card">
+                    <table class="asset-table">
+                        <thead><tr><th>Asset</th><th>Balance</th><th>Value</th></tr></thead>
+                        <tbody>
+                            <tr><td><i class="fa-brands fa-bitcoin"></i> Bitcoin</td><td>0.05 BTC</td><td>$3,200</td></tr>
+                            <tr><td><i class="fa-brands fa-ethereum"></i> Ethereum</td><td>1.2 ETH</td><td>$2,100</td></tr>
+                            <tr><td><i class="fa-solid fa-dollar-sign"></i> USDT</td><td>1,200</td><td>$1,200</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="portfolio" class="content-section hidden-section">
+                <header><h1>Portfolio Analysis</h1></header>
+                <div class="card" style="text-align: center; padding: 50px;">
+                    <i class="fa-solid fa-chart-simple" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
+                    <p>Your portfolio is currently <strong>High Risk</strong>.</p>
+                    <button class="small-btn" onclick="showSection('robo')">Go to Robo-Advisor</button>
+                </div>
+            </section>
+
+            <section id="robo" class="content-section active-section">
+                <header class="robo-header">
+                    <div>
+                        <h1><i class="fa-solid fa-robot"></i> Adaptive DRL Agent</h1>
+                        <p>Hyper-Personalized, Risk-Adaptive Rebalancing</p>
+                    </div>
+                    <span class="status-badge">System Online</span>
+                </header>
+
+                <div class="grid-layout">
+                    <div class="card control-panel">
+                        <h3>Configuration</h3>
+                        <div class="input-group">
+                            <label>Dynamic Stress Metric M(stress)</label>
+                            <div class="slider-container">
+                                <input type="range" id="stress-slider" min="0" max="1" step="0.05" value="0.3">
+                                <span id="stress-value" class="highlight-val">0.3</span>
+                            </div>
+                            <small>0.0 = Calm | 1.0 = Panic</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Risk Profile</label>
+                            <select id="risk-profile">
+                                <option value="Conservative">Conservative</option>
+                                <option value="Balanced" selected>Balanced</option>
+                                <option value="Aggressive">Aggressive</option>
+                            </select>
+                        </div>
+
+                        <button onclick="updatePortfolio()" id="rebalance-btn" class="primary-btn">
+                            Run DRL Agent Rebalance
+                        </button>
+                    </div>
+
+                    <div class="card result-panel">
+                        <h3>Strategy Output</h3>
+                        <div class="strategy-box">
+                            <p><strong>Strategy:</strong> <span id="strat-name">Waiting for input...</span></p>
+                            <p id="strat-reason">Adjust parameters to see the DRL agent react.</p>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="allocationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENSE HACK - Access</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+
+    <div class="main-container">
+        <div class="card">
+            
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h1>SENSE HACK</h1>
+                <p>Adaptive DRL Investment Agent</p>
+            </div>
+
+            <form id="loginForm" class="auth-form active-form">
+                
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input type="text" placeholder="Type Your Email Here" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <div class="forgot-pass">
+                    <a href="#">Forget Password?</a>
+                </div>
+
+                <button type="submit" class="green-btn">Login</button>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <div class="switch-link">
+                    <a href="#" onclick="toggleForms()">Register Now</a>
+                </div>
+            </form>
+
+            <form id="signupForm" class="auth-form hidden-form">
+                
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" placeholder="Create Password" required>
+                </div>
+
+                <button type="submit" class="green-btn">Create Account</button>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <div class="switch-link">
+                    <a href="#" onclick="toggleForms()">Login to Existing Account</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
